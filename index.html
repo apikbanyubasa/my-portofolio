@@ -40,6 +40,9 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -72,9 +75,19 @@
         </nav>
 
         <div class="header-social-links">
-          <a href="#" class="facebook"><i class="bi bi-github"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/apikbanyubasa" class="github"
+            ><i class="bi bi-github"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/bybybann?igsh=MTZsMWJwd3ZzNjI3Yw=="
+            class="instagram"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/apik-banyubasa-b92a5b353/"
+            class="linkedin"
+            ><i class="bi bi-linkedin"></i
+          ></a>
         </div>
       </div>
     </header>
@@ -195,7 +208,7 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-12">
-              <div class="resume-wrapper">
+              <div class="resume-wrapper px-5">
                 <div
                   class="resume-block"
                   data-aos="fade-up"
@@ -244,7 +257,7 @@
         <div class="container mt-10" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-12">
-              <div class="resume-wrapper">
+              <div class="resume-wrapper px-5">
                 <div
                   class="resume-block"
                   data-aos="fade-up"
@@ -277,7 +290,7 @@
         <div class="container mt-10" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-12">
-              <div class="resume-wrapper">
+              <div class="resume-wrapper px-5">
                 <div
                   class="resume-block"
                   data-aos="fade-up"
@@ -316,7 +329,7 @@
         <div class="container mt-10" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-12">
-              <div class="resume-wrapper">
+              <div class="resume-wrapper px-5">
                 <div
                   class="resume-block"
                   data-aos="fade-up"
@@ -358,9 +371,9 @@
                     >
                       <div class="timeline-left">
                         <h4 class="company">
-                          "THE INFLUENCE OF TIKTOK SHORT-FORM VIDEOS ON
-                          ATTENTION SPAN AND STUDY HABITS OF STUDENTS IN COLLEGE
-                          OF VOCATIONAL STUDIES IPB UNIVERSITY"
+                          "The Influence of TikTok Short-Form Videos on
+                          Attention Span and Study Habits of Students in College
+                          of Vocational Studies IPB University"
                         </h4>
                         <span class="period">Juni 2024</span>
                       </div>
@@ -706,7 +719,6 @@
               </svg>
             </div>
           </div>
-          <!-- End Section Title -->
 
           <div class="row g-5">
             <div class="col">
@@ -716,6 +728,14 @@
                 data-aos-delay="300"
               >
                 <div class="card-body p-4 p-lg-5">
+                  <!-- Alert Komponen -->
+                  <div
+                    id="form-alert"
+                    class="alert alert-warning d-none"
+                    role="alert"
+                  ></div>
+
+                  <!-- Form Kontak -->
                   <form id="contact-form">
                     <div class="row gy-4">
                       <div class="col-12">
@@ -759,19 +779,6 @@
                       </div>
 
                       <div class="col-12 text-center">
-                        <div
-                          id="success-message"
-                          style="display: none; color: green"
-                        >
-                          Pesan berhasil dikirim!
-                        </div>
-                        <div
-                          id="error-message"
-                          style="display: none; color: red"
-                        >
-                          Gagal mengirim pesan!
-                        </div>
-
                         <button
                           type="submit"
                           id="submit-message"
@@ -782,6 +789,7 @@
                       </div>
                     </div>
                   </form>
+                  <!-- End Form -->
                 </div>
               </div>
             </div>
@@ -796,9 +804,15 @@
           <p>© <span>Copyright 2025</span> <span>Apik Banyubasa</span></p>
         </div>
         <div class="social-links d-flex justify-content-center">
-          <a href=""><i class="bi bi-github"></i></a>
-          <a href=""><i class="bi bi-instagram"></i></a>
-          <a href=""><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/apikbanyubasa"
+            ><i class="bi bi-github"></i
+          ></a>
+          <a href="https://www.instagram.com/bybybann?igsh=MTZsMWJwd3ZzNjI3Yw=="
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/apik-banyubasa-b92a5b353/"
+            ><i class="bi bi-linkedin"></i
+          ></a>
         </div>
       </div>
     </footer>
@@ -823,6 +837,7 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
     <!-- Contact form script -->
     <script type="text/javascript">
       (function () {
@@ -893,6 +908,37 @@
             });
         });
       })();
+    </script>
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simulasi hasil sukses
+          const success = true;
+
+          if (success) {
+            Swal.fire({
+              icon: "success",
+              title: "Berhasil!",
+              text: "Pesan berhasil dikirim.",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "OK",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Gagal!",
+              text: "Pesan gagal dikirim. Silakan coba lagi.",
+              confirmButtonColor: "#d33",
+              confirmButtonText: "Coba Lagi",
+            });
+          }
+
+          // Reset form
+          this.reset();
+        });
     </script>
   </body>
 </html>
