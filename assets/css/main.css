@@ -12,9 +12,10 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font:
+    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Questrial", sans-serif;
   --nav-font: "Noto Sans", sans-serif;
 }
@@ -821,6 +822,7 @@ section,
   position: absolute;
   border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero .hero-image .shape-1 {
