@@ -219,4 +219,42 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+
+  /**
+   * EmailJS Contact Form Submission
+   */
+  const contactForm = document.querySelector('.php-email-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const loading = contactForm.querySelector('.loading');
+      const errorMessage = contactForm.querySelector('.error-message');
+      const sentMessage = contactForm.querySelector('.sent-message');
+
+      // Tampilkan indikator loading jika elemennya ada di HTML
+      if (loading) loading.classList.add('d-block');
+      if (errorMessage) errorMessage.classList.remove('d-block');
+      if (sentMessage) sentMessage.classList.remove('d-block');
+
+      // Ganti SERVICE_ID dan TEMPLATE_ID dengan ID asli dari dashboard EmailJS
+      emailjs.sendForm('SERVICE_ID_KAMU', 'TEMPLATE_ID_KAMU', this)
+        .then(() => {
+          if (loading) loading.classList.remove('d-block');
+          if (sentMessage) sentMessage.classList.add('d-block');
+          contactForm.reset();
+        })
+        .catch((error) => {
+          if (loading) loading.classList.remove('d-block');
+          if (errorMessage) {
+            errorMessage.innerHTML = 'Gagal mengirim pesan: ' + (error.text || JSON.stringify(error));
+            errorMessage.classList.add('d-block');
+          } else {
+            alert('Gagal mengirim pesan: ' + JSON.stringify(error));
+          }
+        });
+    });
+  }
+
 })();
