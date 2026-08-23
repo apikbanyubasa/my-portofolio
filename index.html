@@ -942,36 +942,5 @@
         });
       })();
     </script>
-    <script>
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Simulasi hasil sukses
-          const success = true;
-
-          if (success) {
-            Swal.fire({
-              icon: "success",
-              title: "Berhasil!",
-              text: "Pesan berhasil dikirim.",
-              confirmButtonColor: "#3085d6",
-              confirmButtonText: "OK",
-            });
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Gagal!",
-              text: "Pesan gagal dikirim. Silakan coba lagi.",
-              confirmButtonColor: "#d33",
-              confirmButtonText: "Coba Lagi",
-            });
-          }
-
-          // Reset form
-          this.reset();
-        });
-    </script>
   </body>
 </html>
